@@ -1,6 +1,7 @@
 import "./App.css";
 import React from "react";
 import Tarefa from "./components/Tarefa";
+import Titulo from "./components/Titulo";
 function App() {
   const tarefas = [
     { id: 1, nome: "Estudar React" },
@@ -10,6 +11,7 @@ function App() {
   return (
     <div>
       <h1>Gerenciador de Tarefas 📝</h1>
+      <Titulo texto="Lista de Tarefas" />
       <ul>
         {tarefas.map((tarefa) => (
           <Tarefa key={tarefa.id} nome={tarefa.nome} />
