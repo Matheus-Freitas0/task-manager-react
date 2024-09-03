@@ -1,13 +1,19 @@
-import "./App.css"
+import "./App.css";
 function App() {
+  const tarefas = [
+    { id: 1, nome: "Estudar React" },
+    { id: 2, nome: "Fazer exercícios" },
+    { id: 3, nome: "Ler um livro" },
+  ];
   return (
     <div>
       <h1>Gerenciador de Tarefas 📝</h1>
-      <p>
-        Bem-vindo ao seu gerenciador de tarefas. Vamos começ ar a organizar seu
-        dia!
-      </p>
+      <ul>
+        {tarefas.map((tarefa) => (
+          <li key={tarefa.id}>{tarefa.nome}</li>
+        ))}
+      </ul>
     </div>
   )
 }
-export default App
+export default App;
