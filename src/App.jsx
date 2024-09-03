@@ -1,13 +1,19 @@
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import Tarefa from "./components/Tarefa";
 import Titulo from "./components/Titulo";
 function App() {
-  const tarefas = [
+  const [tarefas, setTarefas] = useState([
     { id: 1, nome: "Estudar React" },
     { id: 2, nome: "Fazer exercícios" },
     { id: 3, nome: "Ler um livro" },
-  ];
+  ]);
+  const [novaTarefa, setNovaTarefa] = useState("");
+  const adicionarTarefa = () => {
+    const nova = { id: tarefas.length + 1, nome: novaTarefa };
+    setTarefas([...tarefas, nova]);
+    setNovaTarefa("");
+  };
   return (
     <div>
       <h1>Gerenciador de Tarefas 📝</h1>
@@ -17,6 +23,13 @@ function App() {
           <Tarefa key={tarefa.id} nome={tarefa.nome} />
         ))}
       </ul>
+      <input
+        type="text"
+        value={novaTarefa}
+        onChange={(e) => setNovaTarefa(e.target.value)}
+        placeholder="Adicionar nova tarefa"
+      />
+      <button onClick={adicionarTarefa}>Adicionar</button>
     </div>
   );
 }
