@@ -1,4 +1,6 @@
 import "./App.css";
+import React from "react";
+import Tarefa from "./components/Tarefa";
 function App() {
   const tarefas = [
     { id: 1, nome: "Estudar React" },
@@ -10,10 +12,10 @@ function App() {
       <h1>Gerenciador de Tarefas 📝</h1>
       <ul>
         {tarefas.map((tarefa) => (
-          <li key={tarefa.id}>{tarefa.nome}</li>
+          <Tarefa key={tarefa.id} nome={tarefa.nome} />
         ))}
       </ul>
     </div>
-  )
+  );
 }
 export default App;
