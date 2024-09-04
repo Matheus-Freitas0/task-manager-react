@@ -4,8 +4,14 @@ import Tarefa from "./components/Tarefa";
 import Titulo from "./components/Titulo";
 
 function ContagemTarefas({ tarefas }) {
-  const tarefasNaoConcluidas = tarefas.filter((tarefa) => !tarefa.concluida).length;
-  return <p className="contagem-tarefas">Tarefas restantes: {tarefasNaoConcluidas}</p>;
+  const tarefasNaoConcluidas = tarefas.filter(
+    (tarefa) => !tarefa.concluida
+  ).length;
+  return (
+    <p className="contagem-tarefas">
+      Tarefas restantes: {tarefasNaoConcluidas}
+    </p>
+  );
 }
 
 function App() {
@@ -18,28 +24,36 @@ function App() {
 
   const adicionarTarefa = () => {
     if (novaTarefa.trim()) {
-      const nova = { id: tarefas.length + 1, nome: novaTarefa, concluida: false };
+      const nova = {
+        id: tarefas.length + 1,
+        nome: novaTarefa,
+        concluida: false,
+      };
       setTarefas([...tarefas, nova]);
-      alert(`Tarefa "${nova.nome}" adicionada com sucesso!`)
+      alert(`Tarefa "${nova.nome}" adicionada com sucesso!`);
       setNovaTarefa("");
     }
   };
 
   const removerTarefa = (id) => {
     setTarefas(tarefas.filter((tarefa) => tarefa.id !== id));
-    alert(`Removido com sucesso!`)
+    alert(`Removido com sucesso!`);
   };
 
   const editarTarefa = (id, novoNome) => {
-    setTarefas(tarefas.map((tarefa) =>
-      tarefa.id === id ? { ...tarefa, nome: novoNome } : tarefa
-    ));
+    setTarefas(
+      tarefas.map((tarefa) =>
+        tarefa.id === id ? { ...tarefa, nome: novoNome } : tarefa
+      )
+    );
   };
 
   const marcarComoConcluida = (id) => {
-    setTarefas(tarefas.map((tarefa) =>
-      tarefa.id === id ? { ...tarefa, concluida: !tarefa.concluida } : tarefa
-    ));
+    setTarefas(
+      tarefas.map((tarefa) =>
+        tarefa.id === id ? { ...tarefa, concluida: !tarefa.concluida } : tarefa
+      )
+    );
   };
 
   return (
@@ -66,7 +80,7 @@ function App() {
         <input
           type="text"
           value={novaTarefa}
-          onKeyDown={(e) => e.key === 'Enter' && adicionarTarefa()}
+          onKeyDown={(e) => e.key === "Enter" && adicionarTarefa()}
           onChange={(e) => setNovaTarefa(e.target.value)}
           placeholder="Adicionar nova tarefa"
         />
