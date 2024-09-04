@@ -16,7 +16,7 @@ function App() {
     { id: 2, nome: "Fazer exercícios", concluida: false },
     { id: 3, nome: "Ler um livro", concluida: false },
   ]);
-  
+
   const [novaTarefa, setNovaTarefa] = useState("");
 
   const adicionarTarefa = () => {
@@ -64,10 +64,12 @@ function App() {
               textDecoration: tarefa.concluida ? "line-through" : "none",
             }}
           >
+            
             <Tarefa nome={tarefa.nome} />
             <button onClick={() => marcarComoConcluida(tarefa.id)}>
               {tarefa.concluida ? "Desmarcar" : "Concluir"}
             </button>
+            
             <button
               onClick={() => {
                 const novoNome = prompt("Edite o nome da tarefa:", tarefa.nome);
@@ -76,9 +78,11 @@ function App() {
             >
               Editar
             </button>
+
             <button onClick={() => removerTarefa(tarefa.id)}>Remover</button>
           </li>
         ))}
+
       </ul>
       <input
         type="text"
@@ -86,7 +90,9 @@ function App() {
         onChange={(e) => setNovaTarefa(e.target.value)}
         placeholder="Adicionar nova tarefa"
       />
+
       <button onClick={adicionarTarefa}>Adicionar</button>
+      
     </div>
   );
 }
