@@ -14,6 +14,7 @@ function App() {
     setTarefas([...tarefas, nova]);
     setNovaTarefa("");
   };
+  
   return (
     <div>
       <h1>Gerenciador de Tarefas 📝</h1>
