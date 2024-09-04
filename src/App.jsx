@@ -20,12 +20,14 @@ function App() {
     if (novaTarefa.trim()) {
       const nova = { id: tarefas.length + 1, nome: novaTarefa, concluida: false };
       setTarefas([...tarefas, nova]);
+      alert(`Tarefa "${nova.nome}" adicionada com sucesso!`)
       setNovaTarefa("");
     }
   };
 
   const removerTarefa = (id) => {
     setTarefas(tarefas.filter((tarefa) => tarefa.id !== id));
+    alert(`Removido com sucesso!`)
   };
 
   const editarTarefa = (id, novoNome) => {
