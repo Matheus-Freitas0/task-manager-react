@@ -67,6 +67,7 @@ function App() {
           type="text"
           value={novaTarefa}
           onChange={(e) => setNovaTarefa(e.target.value)}
+          onKeyDown={(e) => e.key === 'Enter' && adicionarTarefa()}
           placeholder="Adicionar nova tarefa"
         />
         <button onClick={adicionarTarefa}>Adicionar</button>
