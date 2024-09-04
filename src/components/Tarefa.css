@@ -1,0 +1,54 @@
+.tarefa-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .tarefa-item.concluida {
+    text-decoration: line-through;
+    color: #888;
+    background-color: #e0e0e0;
+  }
+  
+  .tarefa-item.nao-concluida {
+    text-decoration: none;
+    color: #333;
+    background-color: #f9f9f9;
+  }
+  
+  .tarefa-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .tarefa-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .tarefa-button.concluir {
+    background-color: #4caf50;
+  }
+  
+  .tarefa-button.concluir.concluida {
+    background-color: #f44336;
+  }
+  
+  .tarefa-button.editar {
+    background-color: #2196f3;
+  }
+  
+  .tarefa-button.remover {
+    background-color: #f44336;
+  }
+  

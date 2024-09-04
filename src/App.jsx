@@ -1,5 +1,12 @@
+import "./App.css";
 import React, { useState } from "react";
 import Tarefa from "./components/Tarefa";
+import Titulo from "./components/Titulo";
+
+function ContagemTarefas({ tarefas }) {
+  const tarefasNaoConcluidas = tarefas.filter((tarefa) => !tarefa.concluida).length;
+  return <p className="contagem-tarefas">Tarefas restantes: {tarefasNaoConcluidas}</p>;
+}
 
 function App() {
   const [tarefas, setTarefas] = useState([
@@ -7,51 +14,61 @@ function App() {
     { id: 2, nome: "Fazer exercícios", concluida: false },
     { id: 3, nome: "Ler um livro", concluida: false },
   ]);
-
   const [novaTarefa, setNovaTarefa] = useState("");
 
   const adicionarTarefa = () => {
-    if (novaTarefa.trim() === "") return;
-    const nova = { id: tarefas.length + 1, nome: novaTarefa, concluida: false };
-    setTarefas([...tarefas, nova]);
-    setNovaTarefa("");
-  };
-
-  const alternarConclusao = (id) => {
-    const tarefasAtualizadas = tarefas.map((tarefa) =>
-      tarefa.id === id ? { ...tarefa, concluida: !tarefa.concluida } : tarefa
-    );
-    setTarefas(tarefasAtualizadas);
+    if (novaTarefa.trim()) {
+      const nova = { id: tarefas.length + 1, nome: novaTarefa, concluida: false };
+      setTarefas([...tarefas, nova]);
+      setNovaTarefa("");
+    }
   };
 
   const removerTarefa = (id) => {
-    const tarefasAtualizadas = tarefas.filter((tarefa) => tarefa.id !== id);
-    setTarefas(tarefasAtualizadas);
+    setTarefas(tarefas.filter((tarefa) => tarefa.id !== id));
+  };
+
+  const editarTarefa = (id, novoNome) => {
+    setTarefas(tarefas.map((tarefa) =>
+      tarefa.id === id ? { ...tarefa, nome: novoNome } : tarefa
+    ));
+  };
+
+  const marcarComoConcluida = (id) => {
+    setTarefas(tarefas.map((tarefa) =>
+      tarefa.id === id ? { ...tarefa, concluida: !tarefa.concluida } : tarefa
+    ));
   };
 
   return (
-    <div>
+    <div className="app-container">
       <h1>Gerenciador de Tarefas 📝</h1>
-      <ul>
+      <ContagemTarefas tarefas={tarefas} />
+      <Titulo texto="Lista de Tarefas" />
+      <ul className="tarefa-list">
         {tarefas.map((tarefa) => (
           <Tarefa
             key={tarefa.id}
             nome={tarefa.nome}
             concluida={tarefa.concluida}
-            onToggle={() => alternarConclusao(tarefa.id)}
+            onToggle={() => marcarComoConcluida(tarefa.id)}
             onRemover={() => removerTarefa(tarefa.id)}
+            onEditar={() => {
+              const novoNome = prompt("Edite o nome da tarefa:", tarefa.nome);
+              if (novoNome) editarTarefa(tarefa.id, novoNome);
+            }}
           />
         ))}
       </ul>
-
-      <input
-        type="text"
-        value={novaTarefa}
-        onChange={(e) => setNovaTarefa(e.target.value)}
-        placeholder="Adicionar nova tarefa"
-      />
-      
-      <button onClick={adicionarTarefa}>Adicionar</button>
+      <div className="input-container">
+        <input
+          type="text"
+          value={novaTarefa}
+          onChange={(e) => setNovaTarefa(e.target.value)}
+          placeholder="Adicionar nova tarefa"
+        />
+        <button onClick={adicionarTarefa}>Adicionar</button>
+      </div>
     </div>
   );
 }

@@ -1,21 +1,30 @@
 import React from "react";
+import "./Tarefa.css";
 
-function Tarefa({ nome, concluida, onToggle, onRemover }) {
+function Tarefa({ nome, concluida, onToggle, onRemover, onEditar }) {
   return (
-    <li
-      style={{
-        textDecoration: concluida ? "line-through" : "none",
-        color: concluida ? "#888" : "#333",
-        backgroundColor: concluida ? "#e0e0e0" : "#f0f0f0",
-      }}
-    >
-      {nome}
-      <button onClick={onToggle} style={{ marginLeft: "10px" }}>
-        {concluida ? "Desmarcar" : "Concluir"}
-      </button>
-      <button onClick={onRemover} style={{ marginLeft: "10px", color: "red" }}>
-        Remover
-      </button>
+    <li className={`tarefa-item ${concluida ? "concluida" : "nao-concluida"}`}>
+      <span>{nome}</span>
+      <div className="tarefa-buttons">
+        <button
+          onClick={onToggle}
+          className={`tarefa-button concluir ${concluida ? "concluida" : ""}`}
+        >
+          {concluida ? "Desmarcar" : "Concluir"}
+        </button>
+        <button
+          onClick={onEditar}
+          className="tarefa-button editar"
+        >
+          Editar
+        </button>
+        <button
+          onClick={onRemover}
+          className="tarefa-button remover"
+        >
+          Remover
+        </button>
+      </div>
     </li>
   );
 }
