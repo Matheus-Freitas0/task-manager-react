@@ -8,13 +8,17 @@ function App() {
     { id: 2, nome: "Fazer exercícios" },
     { id: 3, nome: "Ler um livro" },
   ]);
+
   const [novaTarefa, setNovaTarefa] = useState("");
+
   const adicionarTarefa = () => {
-    const nova = { id: tarefas.length + 1, nome: novaTarefa };
-    setTarefas([...tarefas, nova]);
-    setNovaTarefa("");
+    if (novaTarefa.trim()) {
+      const nova = { id: tarefas.length + 1, nome: novaTarefa };
+      setTarefas([...tarefas, nova]);
+      setNovaTarefa("");
+    }
   };
-  
+
   return (
     <div>
       <h1>Gerenciador de Tarefas 📝</h1>
