@@ -42,6 +42,7 @@ function App() {
     <div>
       <h1>Gerenciador de Tarefas 📝</h1>
       <Titulo texto="Lista de Tarefas" />
+      
       <ul>
         {tarefas.map((tarefa) => (
           <Tarefa
@@ -51,6 +52,7 @@ function App() {
           />
         ))}
       </ul>
+      
       <input
         type="text"
         value={novaTarefa}
