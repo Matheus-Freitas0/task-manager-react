@@ -59,12 +59,14 @@ function App() {
         onChange={(e) => setNovaTarefa(e.target.value)}
         placeholder="Adicionar nova tarefa"
       />
+      
       <input
         type="text"
         value={descricao}
         onChange={(e) => setDescricao(e.target.value)}
         placeholder="Descricao"
       />
+      
       <button onClick={adicionarTarefa}>Adicionar</button>
     </div>
   );
