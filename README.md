@@ -1,4 +1,4 @@
-# task-manager-react 
+# Task Manager React
 
 ## Descrição
 
@@ -12,11 +12,23 @@ Este é um aplicativo de gerenciamento de tarefas feito com React, que permite a
 * Marcar tarefas como concluídas
 * Excluir tarefas
 
+### Exemplos de uso
+
+* Criar uma nova tarefa: basta digitar o nome da tarefa e clicar em "Adicionar"
+* Listar tarefas existentes: clique em "Listar tarefas" para ver todas as tarefas criadas
+* Adicionar descrição a uma tarefa: clique em "Editar" e adicione a descrição desejada
+
 ## Tecnologias
 
 * React: biblioteca JavaScript para construir interfaces de usuário
 * Axios: biblioteca para fazer requisições HTTP
 * Vite: ferramenta de build e desenvolvimento
+
+## Requisitos
+
+* Node.js 14 ou superior
+* npm 6 ou superior
+* Git 2.24 ou superior
 
 ## Instalação
 
@@ -30,7 +42,7 @@ Para buildar o aplicativo, execute o comando `npm run build` ou `yarn build`. Is
 
 ### Iniciando o Projeto
 
-1. Clone o repositório: `git clone https://github.com/seu-usuario/gerenciador-de-tarefas.git`
+1. Clone o repositório: `git clone https://github.com/Matheus_Freitas/task-manager-react.git`
 2. Instale as dependências: `npm install` ou `yarn install`
 3. Inicie o servidor de desenvolvimento: `npm run dev` ou `yarn dev`
 4. Abra o navegador e acesse `http://localhost:3000`
