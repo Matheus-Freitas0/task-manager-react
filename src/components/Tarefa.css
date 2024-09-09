@@ -10,23 +10,6 @@
     transition: background-color 0.3s, box-shadow 0.3s;
   }
   
-  .tarefa-item.concluida {
-    text-decoration: line-through;
-    color: #888;
-    background-color: #e0e0e0;
-  }
-  
-  .tarefa-item.nao-concluida {
-    text-decoration: none;
-    color: #333;
-    background-color: #f9f9f9;
-  }
-  
-  .tarefa-item.importante {
-    border: 2px solid #f39c12; 
-    background-color: #fff3e0; 
-  }
-  
   .tarefa-buttons {
     display: flex;
     gap: 10px;
@@ -40,34 +23,3 @@
     cursor: pointer;
     transition: background-color 0.3s;
   }
-  
-  .tarefa-button.concluir {
-    background-color: #4caf50;
-    border-radius: 2rem;
-  }
-  
-  .tarefa-button.concluir.concluida {
-    background-color: #f44336;
-    border-radius: 2rem;
-  }
-  
-  .tarefa-button.editar {
-    background-color: #2196f3;
-    border-radius: 2rem;
-  }
-  
-  .tarefa-button.remover {
-    background-color: #f44336;
-    border-radius: 2rem;
-  }
-  
-  .tarefa-button.importante {
-    background-color: #f39c12;
-    border-radius: 2rem;
-  }
-  
-  .tarefa-button.importante.marcada {
-    background-color: #e67e22;
-    border-radius: 2rem;
-  }
-  
