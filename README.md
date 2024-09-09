@@ -53,8 +53,4 @@ Se você deseja contribuir para o projeto, por favor, faça um fork do repositó
 
 ## Licença
 
-Este projeto está licenciado sob a Licença MIT.
-
-## Créditos
-
-Desenvolvido por Matheus_Freitas
+Este projeto está licenciado
