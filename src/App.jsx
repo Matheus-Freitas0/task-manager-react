@@ -41,7 +41,7 @@ function App() {
 
   const concluirTarefa = async (id) => {
     try {
-      await axios.put(`http://localhost:3000/tarefas/${id}`, {
+      await axios.put(`http://localhost:3000/tarefas/concluida/${id}`, {
         concluida: true,
       });
       buscarTarefas();
