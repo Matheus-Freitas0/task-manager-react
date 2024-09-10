@@ -65,14 +65,14 @@ ul {
 }
 
 li {
-  background: var(--list-item-background);
+  background: linear-gradient(to right, #9fc9ee, rgb(187, 222, 251));
   margin: 1rem 0;
   padding: 1rem;
   border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  transition: background-color 0.3s ease;
+  transition: background 0.3s ease; 
   border: 1px solid var(--list-item-border);
   box-shadow: 0 0.2rem 0.5rem rgba(0, 0, 0, 0.1);
 }
